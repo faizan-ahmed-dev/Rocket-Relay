@@ -54,6 +54,7 @@ public class Lander : MonoBehaviour
         if (dotVector < minDotVector)
         {
             Debug.Log("Landed on a too steep angle!");
+            return;
         }
 
         Debug.Log("Successful Landing");
@@ -67,6 +68,10 @@ public class Lander : MonoBehaviour
 
         Debug.Log("landingAngleScore: " + landingAngleScore);
         Debug.Log("landingspeedScore: " + landingSpeedScore);
+
+        int score = Mathf.RoundToInt((landingAngleScore + landingSpeedScore) * landingPad.getScoreMultiplier());
+
+        Debug.Log("score: " + score);
     }
 
 }
