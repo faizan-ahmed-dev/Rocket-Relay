@@ -13,6 +13,8 @@ public class Lander : MonoBehaviour
 
 
     private Rigidbody2D landerRigidBody2D;
+    private float fuelAmount = 10f;
+
 
     private void Awake()
     {
@@ -23,10 +25,25 @@ public class Lander : MonoBehaviour
     {
         OnBeforeForce?.Invoke(this, EventArgs.Empty);
 
+        Debug.Log(fuelAmount);
+        if (fuelAmount <= 0f )
+        {
+            // no fuel
+            return;
+        }
+
+        if (Keyboard.current.upArrowKey.isPressed || Keyboard.current.leftArrowKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
+        {
+            // Pressing any input
+            ConsumeFuel();
+        }
+
         if (Keyboard.current.upArrowKey.isPressed)
         {
             float force = 700f;
             landerRigidBody2D.AddForce(force * transform.up * Time.deltaTime);
+            
+
             OnUpForce?.Invoke(this, EventArgs.Empty);
         }
 
@@ -34,6 +51,7 @@ public class Lander : MonoBehaviour
         {
             float turnSpeed = +100f;
             landerRigidBody2D.AddTorque(turnSpeed *  Time.deltaTime);
+            
             OnLeftForce?.Invoke(this, EventArgs.Empty);
         }
 
@@ -41,6 +59,7 @@ public class Lander : MonoBehaviour
         {
             float turnSpeed = -100f;
             landerRigidBody2D.AddTorque(turnSpeed * Time.deltaTime);
+            
             OnRightForce?.Invoke(this, EventArgs.Empty);
         }
 
@@ -86,6 +105,23 @@ public class Lander : MonoBehaviour
         int score = Mathf.RoundToInt((landingAngleScore + landingSpeedScore) * landingPad.getScoreMultiplier());
 
         Debug.Log("score: " + score);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.TryGetComponent(out FuelPickup fuelPickup))
+        {
+            float addFuelAmount = 10f;
+            fuelAmount += addFuelAmount;
+            fuelPickup.DestroySelf();
+        }
+    }
+
+    private void ConsumeFuel()
+    {
+        float fuelConsumptionAmount = 1f;
+        fuelAmount -= fuelConsumptionAmount * Time.deltaTime;
     }
 
 }
