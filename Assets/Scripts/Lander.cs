@@ -142,4 +142,22 @@ public class Lander : MonoBehaviour
         fuelAmount -= fuelConsumptionAmount * Time.deltaTime;
     }
 
+
+    public float GetFuel()
+    {
+        return fuelAmount;
+    }
+
+    public float GetSpeedX()
+    {
+        return landerRigidBody2D.linearVelocityX;
+    }
+
+    public float GetSpeedY()
+    {
+        return landerRigidBody2D.linearVelocityY;
+    }
+
+
+
 }
