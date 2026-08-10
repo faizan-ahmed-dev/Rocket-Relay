@@ -20,12 +20,15 @@ public class Lander : MonoBehaviour
 
 
     private Rigidbody2D landerRigidBody2D;
-    private float fuelAmount = 10f;
+    private float fuelAmount;
+    private float fuelAmountMax = 10f;
+
 
 
     private void Awake()
     {
         Instance = this;
+        fuelAmount = fuelAmountMax;
         landerRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -126,6 +129,11 @@ public class Lander : MonoBehaviour
         {
             float addFuelAmount = 10f;
             fuelAmount += addFuelAmount;
+            if (fuelAmount > fuelAmountMax)
+            {
+                fuelAmount = fuelAmountMax;
+            }
+
             fuelPickup.DestroySelf();
         }
 
@@ -147,6 +155,13 @@ public class Lander : MonoBehaviour
     {
         return fuelAmount;
     }
+
+    public float GetFuelAmountNormalized()
+    {
+        // For fuel percentage for fuel bar
+        return fuelAmount / fuelAmountMax;
+    }
+
 
     public float GetSpeedX()
     {

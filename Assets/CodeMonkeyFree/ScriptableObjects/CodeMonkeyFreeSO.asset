@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: lunarLanderFree
-  lastShownTimestamp: 1786171795
+  lastShownTimestamp: 1786364492
   lastUpdateResponse:
     version: 1.00
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1786171795
+  checkedLastUpdateTimestamp: 1786364492
   lastQOTDResponse:
     questionId: 330
     questionText: 'Is this valid code?
@@ -30,7 +30,7 @@ MonoBehaviour:
     answerC: 
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1786171795
+  lastQotdTimestamp: 1786364492
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/summer2025CodeMonkeyBundle_EndsSoon.png
     topText: Get 80% OFF on ALL my Courses and Games!!! (ENDS AUGUST)
@@ -38,11 +38,11 @@ MonoBehaviour:
     bottomText: DONT MISS the latest important trends, sign up for my FREE Weekly
       Newsletter!
     bottomLink: gamedevreport
-  lastDynamicHeaderTimestamp: 1786171795
+  lastDynamicHeaderTimestamp: 1786364492
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1786171795
+  websiteLatestMessageTimestamp: 1786364492
   websiteLatestVideos:
     videos:
     - youTubeId: 26F9uHlPEO0
@@ -53,4 +53,4 @@ MonoBehaviour:
       title: BEST NEW Visual Assets to INSPIRE YOU! (JULY 2026)
     - youTubeId: f0BSrBhudoY
       title: TOP 10 NEW Systems and Tools JULY 2026! | Unity Asset Store
-  websiteLatestVideosTimestamp: 1786171795
+  websiteLatestVideosTimestamp: 1786364492
